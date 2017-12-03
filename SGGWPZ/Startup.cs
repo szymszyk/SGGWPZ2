@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SGGWPZ.Models;
 
 namespace SGGWPZ
 {
@@ -14,6 +15,11 @@ namespace SGGWPZ
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
+            using (var client = new PlanContext())
+            {
+                client.Database.EnsureCreated();
+            }
         }
 
         public IConfiguration Configuration { get; }
@@ -22,7 +28,11 @@ namespace SGGWPZ
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddEntityFrameworkSqlite().AddDbContext<PlanContext>();
+
         }
+
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

@@ -1,7 +1,7 @@
 using System;
 public class Katedra {
-	private int id_katedry;
-	private string nazwa;
-	private string wydzial;
+    public int katedraId { get; set; }
+    public string nazwa { get; set; }
+    public string wydzial { get; set; }
 
 }

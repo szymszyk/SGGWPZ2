@@ -1,13 +1,13 @@
 using System;
 public class Przedmiot {
-	private int id_przedmiotu;
-	private string skrot;
-	private string kierunek;
-	private string rodzaj_studiow;
-	private string stopien;
-	private int semestr;
-	private int rok;
-	private string typ;
-	private string nazwa;
+    public int przedmiotId { get; set; }
+    public string skrot { get; set; }
+    public string kierunek { get; set; }
+    public string rodzaj_studiow { get; set; }
+    public string stopien { get; set; }
+    public int semestr { get; set; }
+    public int rok { get; set; }
+    public int typId { get; set; }
+    public string nazwa { get; set; }
 
 }

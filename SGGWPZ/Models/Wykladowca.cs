@@ -1,9 +1,9 @@
 using System;
 public class Wykladowca {
-	private int id_wykladowcy;
-	private string imie;
-	private string nazwisko;
-	private string tytul;
-	private int id_katedry;
+    public int wykladowcaId { get; set; }
+    public string imie { get; set; }
+    public string nazwisko { get; set; }
+    public string tytul { get; set; }
+    public int katedraId { get; set; }
 
 }

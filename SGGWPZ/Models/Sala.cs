@@ -1,6 +1,7 @@
 using System;
 public class Sala {
-	private string nr_sali;
-	private int budynek;
+    public int salaId { get; set; }
+    public string nr_sali { get; set; }
+    public int budynek { get; set; }
 
 }
