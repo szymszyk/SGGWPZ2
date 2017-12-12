@@ -1,0 +1,61 @@
+﻿@model ViewLista
+
+@*ViewLista*@
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Wykladowcy</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="CreateItem">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+                <label asp-for="imie" class="control-label"></label>
+                <input asp-for="imie" class="form-control" />
+                <span asp-validation-for="imie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="nazwisko" class="control-label"></label>
+                <input asp-for="nazwisko" class="form-control" />
+                <span asp-validation-for="nazwisko" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tytul" class="control-label"></label>
+                <input asp-for="tytul" class="form-control" />
+                <span asp-validation-for="tytul" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="katedraId" class="control-label"></label>
+                <input asp-for="katedraId" class="form-control" />
+                <span asp-validation-for="katedraId" class="text-danger"></span>
+            </div>*@
+            @{
+                for (int i = 0; i < Model.Naglowki.Count; i++)
+                {
+                    <div class="form-group">
+                        <label class="control-label">@Model.Naglowki[i]</label>
+                        <input asp-for="@Model.Wartosci[i]" class="form-control" />
+                        @*<span asp-validation-for="nazwisko" class="text-danger"></span>*@
+                    </div>
+                }
+            }
+            @*<div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>*@
+            <button class="btn" type="submit" asp-page-handler="CreateItem" asp-route-NazwaObiektu="@Model.Nazwa" value="Submit" style="min-width: 100%">Stworz</button>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Lista">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

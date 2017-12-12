@@ -1,0 +1,47 @@
+﻿@model ViewLista
+
+@*IEnumerable<SGGWPZ.Models.Wykladowcy>*@
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h2>@Model.Nazwa</h2>
+
+<p>
+    <a asp-action="OnCreate" asp-route-co="@Model.Nazwa">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            @{
+                foreach (var item in Model.Naglowki)
+                {
+                    <th>
+                        @item
+                    </th>
+                }
+            }
+            <th>Opcje</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Obiekty) {
+        <tr>
+            @{ 
+                foreach (var nag in Model.Naglowki)
+                {
+                    <td>
+                        @item.GetType().GetProperty(nag).GetValue(item)
+                    </td>
+                }
+            }
+            <td>
+                <a asp-action="Edit" asp-route-id="2">Edit</a> |
+                <a asp-action="Details" asp-route-id="2">Details</a> |
+                <a asp-action="Delete" asp-route-id="2">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

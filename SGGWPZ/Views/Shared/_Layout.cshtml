@@ -33,6 +33,22 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Rezerwacja Sekretarka</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administrator<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a asp-area="" asp-controller="Admin" asp-action="Lista" asp-route-co="Wykladowcy">Wykladowcy</a></li>
+                            <li><a asp-area="" asp-controller="Admin" asp-action="Lista" asp-route-co="Przedmioty">Przedmioty</a></li>
+                            <li><a asp-area="" asp-controller="Home" asp-action="Index">Katedry</a></li>
+                            <li><a asp-area="" asp-controller="Home" asp-action="Index">Zdarzenia jednorazowe</a></li>
+                            <li><a asp-area="" asp-controller="Home" asp-action="Index">Sale</a></li>
+                            <li><a asp-area="" asp-controller="Home" asp-action="Index">Zjazdy</a></li>
+                            <li><a asp-area="" asp-controller="Home" asp-action="Index">Dni wolne</a></li>
+                            <li><a asp-area="" asp-controller="Home" asp-action="Index">Uzytkownicy</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a asp-area="" asp-controller="Home" asp-action="Index">Wprowadzenie pelnego planu</a></li>  
+                        </ul>
+                    </li>          
                 </ul>
             </div>
         </div>
