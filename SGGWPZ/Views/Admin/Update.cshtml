@@ -1,20 +1,17 @@
 ﻿@model ViewItem
 
-@*ViewLista*@
-
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
 }
 
-<h2>Create</h2>
+<h2>Edit</h2>
 
 <h4>@Model.Nazwa</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-controller="Admin" asp-action="Create" method="post">
+        <form asp-controller="Admin" asp-action="Update" method="post">
             <input type="hidden" asp-for="@Model.Nazwa" />
-            @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
             @{
                 for (int i = 0; i < Model.Naglowki.Count; i++)
                 {
@@ -26,13 +23,13 @@
                     </div>
                 }
             }
-            <button class="btn form-control" type="submit" style="min-width: 100%">Stworz</button>
+            <button class="btn form-control" type="submit" style="min-width: 100%">Edytuj</button>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-controller="Admin" asp-action="Index" asp-route-co="@Model.Nazwa">Back to List</a>
+    <a asp-action="Index" asp-route-co="@Model.Nazwa">Back to List</a>
 </div>
 
 @section Scripts {

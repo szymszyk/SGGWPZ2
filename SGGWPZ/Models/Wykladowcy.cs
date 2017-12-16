@@ -13,7 +13,7 @@ namespace SGGWPZ.Models
         public string nazwisko { get; set; }
         public string tytul { get; set; }
         public int katedraId { get; set; }
-
+        public int pesel { get; set; }
     }
 }
 

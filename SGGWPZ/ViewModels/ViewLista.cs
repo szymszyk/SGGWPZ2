@@ -21,18 +21,25 @@ namespace SGGWPZ.ViewModels
             Obiekty = obiekty;
         }
 
-        public ViewLista(List<string> naglowki, List<string> wartosci, string nazwa)
-        {
-            Nazwa = nazwa;
-            Wartosci = wartosci;
-            Naglowki = naglowki;
-        }
-
         public ViewLista(List<string> naglowki, IEnumerable<dynamic> obiekty, string nazwa)
         {
             Nazwa = nazwa;
             Naglowki = naglowki;
             Obiekty = obiekty;
         }
+    }
+
+    public class ViewItem
+    {
+        public string Nazwa { get; set; }
+        public List<string> Naglowki { get; set; }
+        public List<string> Wartosci { get; set; }
+
+        //public ViewItem(List<string> naglowki, List<string> wartosci, string nazwa)
+        //{
+        //    Nazwa = nazwa;
+        //    Wartosci = wartosci;
+        //    Naglowki = naglowki;
+        //}
     }
 }

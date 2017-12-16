@@ -9,7 +9,7 @@
 <h2>@Model.Nazwa</h2>
 
 <p>
-    <a asp-action="OnCreate" asp-route-co="@Model.Nazwa">Create New</a>
+    <a asp-action="Create" asp-route-co="@Model.Nazwa">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -37,9 +37,9 @@
                 }
             }
             <td>
-                <a asp-action="Edit" asp-route-id="2">Edit</a> |
-                <a asp-action="Details" asp-route-id="2">Details</a> |
-                <a asp-action="Delete" asp-route-id="2">Delete</a>
+                <a asp-action="Update" asp-route-id="@item.GetType().GetProperties()[0].GetValue(item)" asp-route-co="@Model.Nazwa">Update</a> |
+                @*<a asp-action="Details" asp-route-id="@item.GetType().GetProperties()[0].GetValue(item)" asp-route-co="@Model.Nazwa">Details</a> |*@
+                <a asp-action="Delete" asp-route-id="@item.GetType().GetProperties()[0].GetValue(item)" asp-route-co="@Model.Nazwa">Delete</a>
             </td>
         </tr>
 }

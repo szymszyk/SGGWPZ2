@@ -17,10 +17,10 @@ namespace SGGWPZ
         {
             Configuration = configuration;
 
-            //using (var client = new PlanContext())
-            //{
-            //    client.Database.EnsureCreated();
-            //}
+            using (var client = new PlanContext())
+            {
+                client.Database.EnsureCreated();
+            }
         }
 
         public IConfiguration Configuration { get; }

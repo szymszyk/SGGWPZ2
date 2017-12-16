@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@inject PlanContext db
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -37,14 +39,11 @@
                     <li class="nav-item dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administrator<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a asp-area="" asp-controller="Admin" asp-action="Lista" asp-route-co="Wykladowcy">Wykladowcy</a></li>
-                            <li><a asp-area="" asp-controller="Admin" asp-action="Lista" asp-route-co="Przedmioty">Przedmioty</a></li>
-                            <li><a asp-area="" asp-controller="Home" asp-action="Index">Katedry</a></li>
-                            <li><a asp-area="" asp-controller="Home" asp-action="Index">Zdarzenia jednorazowe</a></li>
-                            <li><a asp-area="" asp-controller="Home" asp-action="Index">Sale</a></li>
-                            <li><a asp-area="" asp-controller="Home" asp-action="Index">Zjazdy</a></li>
-                            <li><a asp-area="" asp-controller="Home" asp-action="Index">Dni wolne</a></li>
-                            <li><a asp-area="" asp-controller="Home" asp-action="Index">Uzytkownicy</a></li>
+                            @{
+                                foreach (var item in db.GetType().GetProperties().ToList().SkipLast(3))
+                                { <li><a asp-area="" asp-controller="Admin" asp-action="Index" asp-route-co="@item.Name">@item.Name</a></li> }
+                            }
+
                             <li role="separator" class="divider"></li>
                             <li><a asp-area="" asp-controller="Home" asp-action="Index">Wprowadzenie pelnego planu</a></li>  
                         </ul>
