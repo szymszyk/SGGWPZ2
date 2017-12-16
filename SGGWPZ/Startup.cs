@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SGGWPZ.Models;
+using SGGWPZ.Repositories;
 
 namespace SGGWPZ
 {
@@ -29,6 +30,9 @@ namespace SGGWPZ
         {
             services.AddMvc();
             services.AddEntityFrameworkSqlite().AddDbContext<PlanContext>();
+
+            services.AddScoped<IUniversalRepositoryTypeOf, UniversalRepositoryTypeOf>();
+            //services.AddScoped(typeof(IUniversalRepositoryTypeOf<>), typeof(UniversalRepositoryTypeOf<>)); // BARDZO UNIWERSALNE
 
         }
 

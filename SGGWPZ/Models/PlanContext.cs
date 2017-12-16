@@ -8,22 +8,36 @@ namespace SGGWPZ.Models
 {
     public class PlanContext : DbContext
     {
-        //public PlanContext(DbContextOptions<PlanContext> options)//:base(options)
-        //{
-        //}
+        public PlanContext(DbContextOptions<PlanContext> options) : base(options)
+        {
+        }
 
-        public DbSet<Cyklicznosc> Cyklicznosci { get; set; }
-        public DbSet<Grupa> Grupy { get; set ;}
-        public DbSet<Katedra> Katedry { get; set; }
-        public DbSet<Przedmiot> Przedmioty { get; set; }
-        public DbSet<Rezerwacja> Rezerwacje { get; set; }
-        public DbSet<Sala> Sale { get; set; }
-        public DbSet<Typ_przedmiotu> Typy_przedmiotu { get; set; }
-        public DbSet<Wykladowca> Wykladowcy { get; set; }
+        public PlanContext()
+        {
+
+        }
+
+        public DbSet<Cyklicznosci> Cyklicznosci { get; set; }
+        public DbSet<Grupy> Grupy { get; set ;}
+        public DbSet<Katedry> Katedry { get; set; }
+        public DbSet<Przedmioty> Przedmioty { get; set; }
+        public DbSet<Rezerwacje> Rezerwacje { get; set; }
+        public DbSet<Sale> Sale { get; set; }
+        public DbSet<Typy_przedmiotu> Typy_przedmiotu { get; set; }
+        public DbSet<Wydzialy> Wydzialy { get; set; }
+        public DbSet<Wykladowcy> Wykladowcy { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Filename=C:\\Users\\przemek1236\\source\\repos\\SGGWPZ\\planzajec.db");
+            optionsBuilder.UseSqlite("Filename=C:\\Users\\Kac\\source\\repos\\SGGWPZ2\\planzajec2.db");
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Katedry>().HasKey(k => k.katedraId);
+            modelBuilder.Entity<Katedry>().HasOne(k => k.wydzialyId) ;
+                //.HasForeignKey()
+                //.HasConstraintName("ForeignKey_Post_Blog");
         }
 
     }

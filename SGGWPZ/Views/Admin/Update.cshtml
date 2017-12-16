@@ -1,0 +1,37 @@
+﻿@model ViewItem
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>@Model.Nazwa</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Admin" asp-action="Update" method="post">
+            <input type="hidden" asp-for="@Model.Nazwa" />
+            @{
+                for (int i = 0; i < Model.Naglowki.Count; i++)
+                {
+                    <div class="form-group">
+                        <label class="control-label">@Model.Naglowki[i]</label>
+                        <input asp-for="@Model.Naglowki[i]" class="form-control" type="hidden" />
+                        <input asp-for="@Model.Wartosci[i]" class="form-control" />
+                        @*<span asp-validation-for="nazwisko" class="text-danger"></span>*@
+                    </div>
+                }
+            }
+            <button class="btn form-control" type="submit" style="min-width: 100%">Edytuj</button>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-route-co="@Model.Nazwa">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
